@@ -7,10 +7,10 @@
  */
 
 /**
- * Description of RogueFactory
+ * Description of Rogue
  *
  * @author pabhoz
  */
-class RogueFactory extends Character{
+class Rogue extends Character{
     //put your code here
 }

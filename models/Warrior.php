@@ -7,10 +7,10 @@
  */
 
 /**
- * Description of MageFactory
+ * Description of Warrior
  *
  * @author pabhoz
  */
-class MageFactory extends Character {
+class Warrior extends Character{
     //put your code here
 }

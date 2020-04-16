@@ -61,15 +61,15 @@ Como todo buen juego de ROL este permite la creación de diferentes personajes e
 
 3. Es hora de crear nuestras fábricas concretas de personajes `MageFactory`, `WarriorFactory`, `RogueFactory`, el juego cuenta las siguientes clases:
 
-   * **Mago (Mage):** Sus estadísticas base son 4 de fuerza, 10 de intelecto, 6 de agilidad, 5 de defensa mágica y 2 de defensa física.
-   * **Guerrero (Warrior):** Sus estadísticas base son 10 de fuerza, 4 de intelecto, 6 de agilidad, 2 de defensa mágica y 6 de defensa física.
-   * **Pícaro (Roge):** Sus estadísticas base son 4 de fuerza, 6 de intelecto, 10 de agilidad, 5 de defensa mágica y 5 de defensa física.
+   * **Mago (Mage):** Sus estadísticas base son 4 de fuerza, 10 de intelecto, 6 de agilidad, 5 de defensa mágica, 2 de defensa física y 80 puntos de vida.
+   * **Guerrero (Warrior):** Sus estadísticas base son 10 de fuerza, 4 de intelecto, 6 de agilidad, 2 de defensa mágica, 6 de defensa física y 110 puntos de vida.
+   * **Pícaro (Roge):** Sus estadísticas base son 4 de fuerza, 6 de intelecto, 10 de agilidad, 5 de defensa mágica, 5 de defensa física y 90 puntos de vida.
 
    Cada clase realiza un reajuste de estadisticas dependiendo de su nivel como se muestra a continuación:
 
-   * **Mago (Mage):** por cada nivel el mago obtiene 1.5X su fuerza base como fuerza total, 2.3X su intelecto base como intelecto total, 1.6X su agilidad base como agilidad total, 1.1X su defensa física como defensa física total y 1.5X su defensa mágica como defensa mágica total.
-   * **Guerrero (Warrior):** por cada nivel el guerrero obtiene 2.3X su fuerza base como fuerza total, 1.5X su intelecto base como intelecto total, 1.6X su agilidad base como agilidad total, 1.6X su defensa física como defensa física total y 1.1X su defensa mágica como defensa mágica total.
-   * **Pícaro (Roge):** por cada nivel el pícaro obtiene 1.6X su fuerza base como fuerza total, 1.5X su intelecto base como intelecto total, 1.9X su agilidad base como agilidad total, 1.6X su defensa física como defensa física total y 1.6X su defensa mágica como defensa mágica total.
+   * **Mago (Mage):** por cada nivel el mago obtiene 1.5X su fuerza base como fuerza total, 2.3X su intelecto base como intelecto total, 1.6X su agilidad base como agilidad total, 1.1X su defensa física como defensa física total, 1.5X su defensa mágica como defensa mágica total y 1.4x sus puntos de vida.
+   * **Guerrero (Warrior):** por cada nivel el guerrero obtiene 2.3X su fuerza base como fuerza total, 1.5X su intelecto base como intelecto total, 1.6X su agilidad base como agilidad total, 1.6X su defensa física como defensa física total, 1.1X su defensa mágica como defensa mágica total  y 1.5x sus puntos de vida.
+   * **Pícaro (Roge):** por cada nivel el pícaro obtiene 1.6X su fuerza base como fuerza total, 1.5X su intelecto base como intelecto total, 1.9X su agilidad base como agilidad total, 1.6X su defensa física como defensa física total, 1.6X su defensa mágica como defensa mágica total  y 1.3x sus puntos de vida
 
    Cada clase tiene su propio cálculo de daño de ataque y defensa como se muestra a continuación:
 

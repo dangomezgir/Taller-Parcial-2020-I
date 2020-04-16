@@ -7,10 +7,9 @@
  */
 
 /**
- * Description of WarriorFactory
  *
  * @author pabhoz
  */
-class WarriorFactory extends Character{
-    //put your code here
+interface IController {
+    function index(): void;
 }
