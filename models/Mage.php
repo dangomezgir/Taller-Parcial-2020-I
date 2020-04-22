@@ -63,8 +63,8 @@ class Mage extends Character {
         $this->setStr($this->getStr() * (1.5 * ($this->getLevel() - 1)));
         $this->setIntl($this->getIntl() * (2.3 * ($this->getLevel() - 1)));
         $this->setAgi($this->getAgi() * (1.6 * ($this->getLevel() - 1)));
-        $this->setMDef($this->getMDef() * (1.5 * ($this->getLevel() - 1)));
         $this->setFDef($this->getFDef() * (1.1 * ($this->getLevel() - 1)));
+        $this->setMDef($this->getMDef() * (1.5 * ($this->getLevel() - 1)));
         $this->setHp($this->getHp() * (1.4 * ($this->getLevel() - 1)));
     }
 
