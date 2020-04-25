@@ -75,7 +75,7 @@ abstract class Character implements ICharacter{
         $data = self::$db->update("Character",$values,"id = ".$this->getId());
     } 
 
-    //Revisar esta función, por ahora no funciona bien, dice que hay un error en la sintaxix de MySQL pero no sé qué sea
+    //Revisar esta función, por ahora no funciona bien, dice que hay un error en la sintaxis de MySQL pero no sé qué sea
     public function delete(){
         self::getConnection();
         $values = ["id"=>$this->getId()];
