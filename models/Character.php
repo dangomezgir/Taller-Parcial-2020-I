@@ -11,8 +11,11 @@
  *
  * @author pabhoz
  */
+require_once LVENDORS.'MySQLiManager/MySQLiManager.php';
+
 abstract class Character implements ICharacter{
     
+    protected $id;
     protected $name;
     protected $level;
     protected $str;
@@ -21,8 +24,9 @@ abstract class Character implements ICharacter{
     protected $mDef;
     protected $fDef;
     protected $hp;
+    static $db;
 
-    function __construct($name, $level, $str, $intl, $agi, $mDef, $fDef, $hp) {
+    function __construct($name, $level, $str, $intl, $agi, $mDef, $fDef, $hp, $id = null) {
         $this->name = $name;
         $this->level = $level;
         $this->str = $str;
@@ -31,9 +35,54 @@ abstract class Character implements ICharacter{
         $this->mDef = $mDef;
         $this->fDef = $fDef;
         $this->hp = $hp;
+        $this->id = $id;
     }
 
+    private static function getConnection(){
+        self::$db = new MySQLiManager('localhost','root','','mmorpg');
+    }
     
+    public static function getModel(int $id){
+        self::getConnection();
+        $data = self::$db->select('*',"Character","id = $id");
+        return $data[$id-1];
+    }
+    
+    public static function getClassName(int $id){
+        self::getConnection();
+        $data = self::$db->select("name","CharacterClass","id = $id");
+        return $data[0]["name"];
+    }
+    
+    public static function getClassNameId(string $className){
+        self::getConnection();
+        $data = self::$db->select('id',"CharacterClass","name = \"$className\"");
+        return $data[0]["id"];
+    }
+    
+    public function create(){
+        // print_r(get_object_vars($this));
+        self::getConnection();
+        $values = ["name"=>$this->getName(), "level"=>$this->getLevel(), "characterClassId"=>self::getClassNameId(get_class($this))];
+        //print_r($values);
+        $data = self::$db->insert("Character",$values);
+    } 
+    
+    public function update(){
+        self::getConnection();
+        $values = ["level"=>$this->getLevel()];
+        // print_r($this->getId());
+        $data = self::$db->update("Character",$values,"id = ".$this->getId());
+    } 
+
+    //Revisar esta función, por ahora no funciona bien, dice que hay un error en la sintaxix de MySQL pero no sé qué sea
+    public function delete(){
+        self::getConnection();
+        $values = ["id"=>$this->getId()];
+        // print_r($this->getId());
+        $data = self::$db->delete("Character",$values,$complex = false);
+    }
+
     abstract public function attack(\ICharacter $target): void;
 
     abstract public function getDamage(float $value, bool $isMagical): void;
@@ -88,6 +137,14 @@ abstract class Character implements ICharacter{
 
     function getHp() {
         return $this->hp;
+    }
+
+    function getId() {
+        return $this->id;
+    }
+
+    function setId($id): void {
+        $this->id = $id;
     }
 
     function setName($name): void {

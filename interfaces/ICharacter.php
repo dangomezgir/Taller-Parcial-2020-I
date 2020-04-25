@@ -25,4 +25,10 @@ interface ICharacter {
     function getDamage(float $value, bool $isMagical) :void;
     
     function iDie() :void;
+
+    static function getModel(int $id);
+    
+    static function getClassName(int $id);
+    
+    function create();
 }

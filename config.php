@@ -16,6 +16,8 @@
 
     define('CONTROLLERS',__DIR__.'/controllers/');
     define('VIEWS',__DIR__.'/views/');
+    
+    define('LVENDORS','./vendors/');
 
     define('VENDORS','./views/_vendors/');
     define('STYLES','./views/_styles/');
