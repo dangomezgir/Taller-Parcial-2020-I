@@ -45,7 +45,7 @@ abstract class Character implements ICharacter{
     public static function getModel(int $id){
         self::getConnection();
         $data = self::$db->select('*',"Character","id = $id");
-        return $data[$id-1];
+        return $data[0];
     }
     
     public static function getClassName(int $id){
