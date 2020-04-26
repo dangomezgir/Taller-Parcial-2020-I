@@ -9,8 +9,6 @@ require_once './config.php';
 require_once './mvcBootstrap.php';
 
 // print_r($user);
-
-
 // $arlakesh = CharacterFactory::newWarrior("Arlakesh");
 // $arlakesh->create();
 // $arlakesh->delete();
