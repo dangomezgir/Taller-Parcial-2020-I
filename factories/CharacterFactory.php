@@ -17,7 +17,6 @@ class CharacterFactory implements ICharacterFactory{
         $data = Character::getModel($id);
         $className = "new".ucfirst(Character::getClassName($data["characterClassId"]));
         $character = CharacterFactory::{$className}($data["name"]);
-        echo "</br>".$data["level"]."</br>";
         $character->setId($data["id"]);
         if($data["level"] != 1){
             $character->setLevel($data["level"]);

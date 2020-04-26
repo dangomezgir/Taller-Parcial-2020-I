@@ -29,16 +29,20 @@ class Mage extends Character {
 
     public function getDamage(float $value, bool $isMagical): void {
         $takenDamage = ($isMagical) ? $value - (0.8 * $this->getMDef()): $value - $this->getFDef();
+        echo "Damage taken from attack: ".$takenDamage."</br>";
         $this->setHp($this->getHp() - $takenDamage);
         echo $this->getName()." now has ".$this->getHp()." hp </br>";
+        if($this->getHp() <= 0){ //Llama al metodo iDie de esta clase
+            $this->iDie(); 
+        }
     }
 
     public function getStat(string $statName): float {
         
     }
 
-    public function iDie(): void {
-        
+    public function iDie(): void { 
+        parent::iDie(); //Llama al metodo iDie de clase padre para poder hacer uso de delete();
     }
 
     public function setStat(string $statName, float $value): void {

@@ -19,14 +19,18 @@ class Warrior extends Character{
      
     public function attack(\ICharacter $target): void {
         $damage = (!$this->isCritical( (0.6 * $this->getAgi()) / 100)) ? 1.4 * $this->getStr() : (1.4 * $this->getStr()) * 2 ;
-        // echo $this->getName().$housePrint." burns ".$target->getName()." for ".$damage." hp! </br>";
+        // echo $this->getName()." strikes ".$target->getName()." for ".$damage." hp! </br>";
         $target->getDamage($damage, true);
     }
 
     public function getDamage(float $value, bool $isMagical): void {
-        $takenDamage = ($isMagical) ? $value - $this->getMDef(): $value - (0.8 * $this->getFDef());
+        $takenDamage = ($isMagical) ? $value - $this->getMDef() : $value - (0.8 * $this->getFDef());
+        echo "Damage taken from attack: ".$takenDamage."</br>";
         $this->setHp($this->getHp() - $takenDamage);
         echo $this->getName()." now has ".$this->getHp()." hp </br>";
+        if($this->getHp() <= 0){
+            echo $this->getName() . " is dead </br>"; 
+        }
     }
 
     public function getStat(string $statName): float {
