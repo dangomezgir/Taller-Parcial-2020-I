@@ -9,8 +9,20 @@ require_once './config.php';
 require_once './mvcBootstrap.php';
 
 // print_r($user);
-// $arlakesh = CharacterFactory::newWarrior("Arlakesh");
-// $arlakesh->create();
-// $arlakesh->delete();
-// $arlaPrint = CharacterFactory::getCharacter(4);//Arreglado de una forma misteriosa y mágica
-// print_r($arlaPrint);
+//$arlakesh = CharacterFactory::newWarrior("Arlakesh");
+//$arlakesh->create();
+ //$arlakesh->delete();
+$charmander = CharacterFactory::getCharacter(1);
+$arlakesh = CharacterFactory::getCharacter(2);//Arreglado de una forma misteriosa y mágica
+//$arlaPrint->attack();
+//print_r($arlaPrint);
+//print_r($charPrint);
+$arlakesh->attack($charmander);
+$arlakesh->attack($charmander);
+$arlakesh->attack($charmander);
+$arlakesh->attack($charmander);
+$arlakesh->attack($charmander);
+$arlakesh->attack($charmander);
+$arlakesh->attack($charmander);
+$arlakesh->attack($charmander);
+

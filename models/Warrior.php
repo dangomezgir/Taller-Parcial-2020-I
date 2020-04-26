@@ -27,6 +27,9 @@ class Warrior extends Character{
         $takenDamage = ($isMagical) ? $value - $this->getMDef(): $value - (0.8 * $this->getFDef());
         $this->setHp($this->getHp() - $takenDamage);
         echo $this->getName()." now has ".$this->getHp()." hp </br>";
+        if($this->getHp() <= 0){
+            echo $this->getName() . " is dead </br>"; 
+        }
     }
 
     public function getStat(string $statName): float {

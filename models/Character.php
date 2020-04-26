@@ -94,7 +94,10 @@ abstract class Character implements ICharacter{
                 ,"mDef" => $this->getMDef(),"fDef" => $this->getFDef(),"hp" => $this->getHp()];
     }
 
-    abstract public function iDie(): void;
+    public function iDie(): void{
+        echo $this->getName() . " is dead </br>";
+        $this->delete(); //Llama al metodo delete(), pero dice que tengo un error de sintaxis
+    }
 
     abstract public function setStat(string $statName, float $value): void;
 
