@@ -66,8 +66,8 @@ abstract class Character implements ICharacter{
         $values = ["name"=>$this->getName(), "level"=>$this->getLevel(), "characterClassId"=>self::getClassNameId(get_class($this))];
         //print_r($values);
         $data = self::$db->insert("Character",$values);
-    } 
-    
+    }
+
     public function update(){
         self::getConnection();
         $values = ["level"=>$this->getLevel()];

@@ -8,5 +8,8 @@
 require_once './config.php';
 require_once './mvcBootstrap.php';
 
-$character = CharacterFactory::getCharacter(1);//Arreglado de una forma misteriosa y mágica
-print_r($character);
+$arlakesh = CharacterFactory::newWarrior("Arlakesh");
+//$arlakesh->create();
+//$arlakesh->delete();
+//$arlaPrint = CharacterFactory::getCharacter(2);//Arreglado de una forma misteriosa y mágica
+//print_r($arlaPrint);

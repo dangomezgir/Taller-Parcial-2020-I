@@ -31,6 +31,6 @@ class CharacterFactory implements ICharacterFactory{
     }
 
     public static function newWarrior(string $name): \Warrior {
-        return new Warrior($nam);
+        return new Warrior($name);
     }
 }
