@@ -18,7 +18,7 @@ class Index_controller extends Controller{
     }
 
     public function index(): void {
-        $this->view->render($this,"index","Woooooah MVC");
+        $this->view->render($this,"index","Taller");
     }
     
     public function arena(): void{

@@ -25,8 +25,4 @@ require_once './mvcBootstrap.php';
 // $arlakesh->attack($charmander);
 // $arlakesh->attack($charmander);
 // $arlakesh->attack($charmander);
-
-$character = CharacterFactory::newRogue("Juanito");
-print_r($character);
-$character -> delete();
-
+print_r(User::getUser(1));
