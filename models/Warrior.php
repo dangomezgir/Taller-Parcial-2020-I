@@ -15,11 +15,10 @@ class Warrior extends Character{
     function __construct($name) {
         parent::__construct($name, 1, 10, 4, 6, 2, 6, 110);
     }
-
      
     public function attack(\ICharacter $target): void {
         $damage = (!$this->isCritical( (0.6 * $this->getAgi()) / 100)) ? 1.4 * $this->getStr() : (1.4 * $this->getStr()) * 2 ;
-        // echo $this->getName().$housePrint." burns ".$target->getName()." for ".$damage." hp! </br>";
+        echo $this->getName()." burns ".$target->getName()." for ".$damage." hp! </br>";
         $target->getDamage($damage, true);
     }
 
@@ -27,8 +26,8 @@ class Warrior extends Character{
         $takenDamage = ($isMagical) ? $value - $this->getMDef(): $value - (0.8 * $this->getFDef());
         $this->setHp($this->getHp() - $takenDamage);
         echo $this->getName()." now has ".$this->getHp()." hp </br>";
-        if($this->getHp() <= 0){
-            echo $this->getName() . " is dead </br>"; 
+        if($this->getHp() <= 0){ 
+            $this->iDie(); 
         }
     }
 
@@ -37,7 +36,7 @@ class Warrior extends Character{
     }
 
     public function iDie(): void {
-        
+        parent::iDie(); 
     }
 
     public function setStat(string $statName, float $value): void {
@@ -48,6 +47,10 @@ class Warrior extends Character{
         
     }
 
+    public function oneLevelUp(): void{
+        $value = $this->getLevel() + 1;
+        $this->setLevel($value);
+    }
         
     function setLevel($level): void {
         $this->level = $level;

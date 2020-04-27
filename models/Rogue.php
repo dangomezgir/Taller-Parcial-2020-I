@@ -15,11 +15,10 @@ class Rogue extends Character{
     function __construct($name) {
         parent::__construct($name, 1, 4, 6, 10, 5, 5, 90);
     }
-
      
     public function attack(\ICharacter $target): void {
         $damage = (!$this->isCritical( (0.8 * $this->getAgi()) / 100)) ? 1.2 * $this->getAgi() : (1.2 * $this->getAgi()) * 2.5 ;
-        // echo $this->getName().$housePrint." burns ".$target->getName()." for ".$damage." hp! </br>";
+        echo $this->getName()." burns ".$target->getName()." for ".$damage." hp! </br>";
         $target->getDamage($damage, true);
     }
 
@@ -27,6 +26,9 @@ class Rogue extends Character{
         $takenDamage = ($isMagical) ? $value - $this->getMDef(): $value - $this->getFDef();
         $this->setHp($this->getHp() - $takenDamage);
         echo $this->getName()." now has ".$this->getHp()." hp </br>";
+        if($this->getHp() <= 0){ 
+            $this->iDie(); 
+        }
     }
 
     public function getStat(string $statName): float {
@@ -34,7 +36,7 @@ class Rogue extends Character{
     }
 
     public function iDie(): void {
-        
+        parent::iDie(); 
     }
 
     public function setStat(string $statName, float $value): void {
@@ -45,6 +47,10 @@ class Rogue extends Character{
         
     }
 
+    public function oneLevelUp(): void{
+        $value = $this->getLevel() + 1;
+        $this->setLevel($value);
+    }
         
     function setLevel($level): void {
         $this->level = $level;

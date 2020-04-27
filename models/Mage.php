@@ -11,19 +11,14 @@
  *
  * @author pabhoz
  */
-class Mage extends Character {
-
-    private $house;
-     
-    function __construct($name, $house) {
+class Mage extends Character{   
+    function __construct($name) {
         parent::__construct($name, 1, 4, 10, 6, 5, 2, 80);
-        $this->house = $house;
     }
     
     public function attack(\ICharacter $target): void {
         $damage = (!$this->isCritical( (0.5 * $this->getIntl()) / 100)) ? 1.2 * $this->getIntl() : (1.2 * $this->getIntl()) * 2 ;
-        $housePrint = (is_null($this->getHouse())) ? '' : " of ".$this->getHouse();
-        echo $this->getName().$housePrint." burns ".$target->getName()." for ".$damage." hp! </br>";
+        echo $this->getName()." burns ".$target->getName()." for ".$damage." hp! </br>";
         $target->getDamage($damage, true);
     }
 
@@ -31,7 +26,7 @@ class Mage extends Character {
         $takenDamage = ($isMagical) ? $value - (0.8 * $this->getMDef()): $value - $this->getFDef();
         $this->setHp($this->getHp() - $takenDamage);
         echo $this->getName()." now has ".$this->getHp()." hp </br>";
-        if($this->getHp() <= 0){ //Llama al metodo iDie de esta clase
+        if($this->getHp() <= 0){ 
             $this->iDie(); 
         }
     }
@@ -41,7 +36,7 @@ class Mage extends Character {
     }
 
     public function iDie(): void { 
-        parent::iDie(); //Llama al metodo iDie de clase padre para poder hacer uso de delete();
+        parent::iDie(); 
     }
 
     public function setStat(string $statName, float $value): void {
@@ -51,15 +46,11 @@ class Mage extends Character {
     public function setStats(array $stats): void {
         
     }
-    
-    function getHouse() {
-        return $this->house;
-    }
 
-    function setHouse($house): void {
-        $this->house = $house;
+    public function oneLevelUp(): void{
+        $value = $this->getLevel() + 1;
+        $this->setLevel($value);
     }
-
         
     function setLevel($level): void {
         $this->level = $level;

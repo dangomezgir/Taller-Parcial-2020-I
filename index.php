@@ -8,21 +8,18 @@
 require_once './config.php';
 require_once './mvcBootstrap.php';
 
-// print_r($user);
-//$arlakesh = CharacterFactory::newWarrior("Arlakesh");
-//$arlakesh->create();
- //$arlakesh->delete();
+//$char = CharacterFactory::newRogue("Percy");
+//$char->create();
 $charmander = CharacterFactory::getCharacter(1);
-$arlakesh = CharacterFactory::getCharacter(2);//Arreglado de una forma misteriosa y mágica
-//$arlaPrint->attack();
-//print_r($arlaPrint);
-//print_r($charPrint);
-$arlakesh->attack($charmander);
-$arlakesh->attack($charmander);
-$arlakesh->attack($charmander);
-$arlakesh->attack($charmander);
-$arlakesh->attack($charmander);
-$arlakesh->attack($charmander);
-$arlakesh->attack($charmander);
-$arlakesh->attack($charmander);
+$arlakesh = CharacterFactory::getCharacter(2);
+$percy = CharacterFactory::getCharacter(4);
+//$percy->oneLevelUp();
+//$percy->update();
+// print_r($charmander);
+// print_r($arlakesh);
+// print_r($percy);
+// $percy->attack($arlakesh);
+
+
+
 

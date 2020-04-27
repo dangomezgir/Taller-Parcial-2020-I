@@ -75,12 +75,13 @@ abstract class Character implements ICharacter{
         $data = self::$db->update("Character",$values,"id = ".$this->getId());
     } 
 
-    //Revisar esta función, por ahora no funciona bien, dice que hay un error en la sintaxis de MySQL pero no sé qué sea
     public function delete(){
         self::getConnection();
-        $values = ["id"=>$this->getId()];
+        $values1 = ["id"=>$this->getId()];
+        $values2 = ["characterid"=>$this->getId()];
         // print_r($this->getId());
-        $data = self::$db->delete("Character",$values,$complex = false);
+        $data = self::$db->delete("user_has_character",$values2,$complex = false);
+        $data = self::$db->delete("Character",$values1,$complex = false);
     }
 
     abstract public function attack(\ICharacter $target): void;
@@ -96,7 +97,7 @@ abstract class Character implements ICharacter{
 
     public function iDie(): void{
         echo $this->getName() . " is dead </br>";
-        $this->delete(); //Llama al metodo delete(), pero dice que tengo un error de sintaxis
+        $this->delete(); 
     }
 
     abstract public function setStat(string $statName, float $value): void;

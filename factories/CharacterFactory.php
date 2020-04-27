@@ -24,8 +24,8 @@ class CharacterFactory implements ICharacterFactory{
         return $character;
     }
     
-    public static function newMage(string $name, string $house = null): \Mage {
-        return new Mage($name, $house);
+    public static function newMage(string $name): \Mage {
+        return new Mage($name);
     }
 
     public static function newRogue(string $name): \Rogue {

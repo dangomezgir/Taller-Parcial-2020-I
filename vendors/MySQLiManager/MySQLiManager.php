@@ -166,11 +166,11 @@ class MySQLiManager{
 		}
 		else{
 			foreach ($values as $key => $value) {
-				$where = $key . '="' . $value . '"';
+				$where = $key.'='.$value.'';
 			}
 		}
 
-		$stmt = 'DELETE FROM '.$table.' WHERE '.$where;
+		$stmt = "DELETE FROM `".$table."` WHERE ".$where;
 		$result = $this->link->query($stmt) or die($this->link->error.__LINE__);
 		
 		if(!$result) {
