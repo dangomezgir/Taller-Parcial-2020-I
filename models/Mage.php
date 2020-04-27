@@ -24,6 +24,7 @@ class Mage extends Character{
 
     public function getDamage(float $value, bool $isMagical): void {
         $takenDamage = ($isMagical) ? $value - (0.8 * $this->getMDef()): $value - $this->getFDef();
+        echo "Damage taken from attack: ".$takenDamage."</br>";
         $this->setHp($this->getHp() - $takenDamage);
         echo $this->getName()." now has ".$this->getHp()." hp </br>";
         if($this->getHp() <= 0){ 
