@@ -42,3 +42,17 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.img{
+  position: fixed;
+  width: 500;
+  height: 500;
+}
+
+.video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}

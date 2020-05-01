@@ -13,7 +13,7 @@
  */
 require_once LVENDORS.'MySQLiManager/MySQLiManager.php';
 
-abstract class Character implements ICharacter{
+abstract class Character extends Model implements ICharacter{
     
     protected $id;
     protected $name;
@@ -24,7 +24,6 @@ abstract class Character implements ICharacter{
     protected $mDef;
     protected $fDef;
     protected $hp;
-    static $db;
 
     function __construct($name, $level, $str, $intl, $agi, $mDef, $fDef, $hp, $id = null) {
         $this->name = $name;
@@ -39,13 +38,12 @@ abstract class Character implements ICharacter{
     }
 
     private static function getConnection(){
-        self::$db = new MySQLiManager('localhost','root','','mmorpg');
+        parent::getConnection();
     }
     
     public static function getModel(int $id){
         self::getConnection();
-        $data = self::$db->select('*',"Character","id = $id");
-        return $data[0];
+        return parent::getModel($id,"Character");
     }
     
     public static function getClassName(int $id){

@@ -2,11 +2,10 @@
 
 require_once LVENDORS.'MySQLiManager/MySQLiManager.php';
 
-class User{
+class User extends Model implements IUser{
     private $id;
     private $username;
     private $password;
-    static $db;
 
     function __construct($username, $password, $id = null){
         $this->username = $username;
@@ -36,20 +35,22 @@ class User{
 
 	public function setPassword($password){
 		$this->password = $password;
-	}
-
+    }
+    
     private static function getConnection(){
-        self::$db = new MySQLiManager('localhost','root','','mmorpg');
+        parent::getConnection();
     }
     
     public static function getModel(int $id){
-        self::getConnection();
-        $data = self::$db->select('*',"User","id = $id");
-        return $data[0];
+        return parent::getModel($id,"User");
     }
 
-    public static function getUser($id){
-        $data = self::getModel($id);
+    public static function getByAttr(string $attrName, string $attrValue){
+        return parent::getByAttr($attrName,$attrValue,"User");
+    }
+
+    public static function getUser(int $id){
+        $data = self::getModel($id, "User");
         $user = new User($data["username"],$data["password"]);
         $user->setId($data["id"]);
         return $user;
